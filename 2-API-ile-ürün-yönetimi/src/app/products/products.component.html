@@ -1,25 +1,24 @@
-<h1 style="text-align: center; margin-top: 20px;">PRODUCTS</h1>
-<div style="display: flex; flex-wrap: wrap;">
+<div class="container">
   @for (product of products; track $index) {
-    <div style="flex: 1; margin: 20px; padding: 12px; ">
-      <mat-card class="example-card" style="height: 600px;">
-        <mat-card-header >
-          <mat-card-title>{{product.title}}</mat-card-title>
-          <mat-card-subtitle>{{product.category}}</mat-card-subtitle>
+  <div class="card" style="flex-basis: 30%; margin: 20px;">
+    <div style="padding: 12px;">
+      <div>
+        <mat-card-header>
+          <div>{{ product.title }}</div>
+          <div>{{ product.category }}</div>
         </mat-card-header>
-        <img mat-card-image class="custom-image" src={{product.image}} alt="Photo of a Shiba Inu"
-          style="height: 300px; width: 300px;">
-        <mat-card-content>
-          <p>
-            {{product.description}}
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button disabled="true">{{product.price}} $</button>
-          <button mat-button color="primary">BUY</button>
-          <button mat-button color="warning" (click)="openDialog(product)">INFO</button>
-        </mat-card-actions>
-      </mat-card>
+        <img mat-card-image src="{{ product.image }}" alt="Product Image" style="height: 300px; width: 300px;">
+        <div>
+          <p>{{ product.description }}</p>
+        </div>
+        <div>
+          <button mat-button disabled>{{ product.price }} $</button>
+          <button mat-raised-button color="primary">BUY</button>
+          <button mat-raised-button color="warning" (click)="openDialog(product)">INFO</button>
+        </div>
+      </div>
     </div>
+  </div>
+
   }
 </div>
