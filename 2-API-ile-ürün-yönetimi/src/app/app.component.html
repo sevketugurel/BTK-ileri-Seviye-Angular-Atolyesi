@@ -1,4 +1,4 @@
-<div style="background-color: antiquewhite;">
-  <app-home></app-home>
-  <app-products></app-products>
-</div>
+  <div style="background-color: antiquewhite;">
+    <app-home [ProductData]="productdataFromNavbar" (setData)="setProducts($event)"></app-home>
+    <app-products [setedProductFromApp]="setedProduct" ></app-products>
+  </div>

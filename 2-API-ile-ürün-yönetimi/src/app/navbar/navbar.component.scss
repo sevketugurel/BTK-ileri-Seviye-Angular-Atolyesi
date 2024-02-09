@@ -5,5 +5,12 @@
   border: 2px solid rgb(186, 186, 186);
   padding: 18px;
   background-color: aliceblue;
-  margin: 0 auto; /* Center the navbar horizontally */
+  margin: 0 auto;
+  /* Center the navbar horizontally */
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 40px;
 }
+

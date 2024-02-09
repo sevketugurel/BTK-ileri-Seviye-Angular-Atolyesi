@@ -13,8 +13,11 @@
         </div>
         <div>
           <button mat-button disabled>{{ product.price }} $</button>
-          <button mat-raised-button color="primary">BUY</button>
-          <button mat-raised-button color="warning" (click)="openDialog(product)">INFO</button>
+          <div>
+            <button mat-raised-button color="primary">BUY</button>
+            <button mat-raised-button color="warning" (click)="openDialog(product)">INFO</button>
+            <button mat-raised-button color="warn" (click)="deleteProduct(product.id)">Delete</button>
+          </div>
         </div>
       </div>
     </div>
