@@ -43,21 +43,15 @@ export class HomeComponent {
     else if (category === "women's clothing") return "Kadın Kıyafet"
     else return ""
   }
-  @Input() ProductData:Products|any; 
-  @Output() setData = new EventEmitter<Products>();
+  @Input() InputValue:string=""; 
+  @Output() categoryNameChanged = new EventEmitter<string>();
 
-  setAppComponent() {
-    this.setData.emit(this.ProductData);    
-  }
 
-  getCategory(category: string) {
-    const APIURL = `https://fakestoreapi.com/products/category/${category}`;
-    this.__http.get(APIURL).subscribe(response => {
-      this.ProductData = response;
-    });
-    this.setAppComponent()
+  changeCategory(category: string) {
+    this.categoryNameChanged.emit(category);
   }
 }
+
 export interface categories {
   category: string;
 }

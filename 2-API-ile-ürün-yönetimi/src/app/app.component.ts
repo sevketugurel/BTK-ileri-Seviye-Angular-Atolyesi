@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,11 +19,11 @@ export class AppComponent {
   setedProduct:Products;
 
   constructor() {}
+  categoryName:string=""
 
-  productdataFromNavbar: Products | any;
-  setProducts(event:any){
-    this.productdataFromNavbar = event
-    this.setedProduct = this.productdataFromNavbar;
+
+  setProducts(categortName:string){
+    this.categoryName=categortName
   }
 }
 

@@ -1,6 +1,6 @@
 <div class="navbar">
   @for (category of categories; track $index) {
-    <button mat-raised-button (click)="getCategory(category)" color="primary">{{getCategories(category)}}</button>
+    <button mat-raised-button (click)="changeCategory(category)" color="primary">{{getCategories(category)}}</button>
   }
   <button mat-button color="primary" (click)="AddopenDialog()">Add Product</button>
 </div>
