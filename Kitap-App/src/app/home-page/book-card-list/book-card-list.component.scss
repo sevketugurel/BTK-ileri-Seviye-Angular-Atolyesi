@@ -1,0 +1,67 @@
+.container {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(160, 234, 176);
+}
+
+
+.field {
+    border: 1px solid rgb(185, 185, 185);
+    width: 28%;
+    padding: 12px;
+    margin: 12px;
+    background-color: rgb(231, 211, 33);
+    div{
+        margin-bottom: 4px;
+    }
+    
+}
+
+
+
+.name {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-name{
+    font-size: larger;
+    font-weight: 600;
+}
+
+.form-star{
+    font-size: smaller;
+    font-style: italic;
+
+}
+
+
+
+
+
+
+
+
+
+/*
+.cards{
+    display: flex;
+    padding: 16px 16px 0;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+
+.example-card{
+    max-width: 30%;
+    max-height: 700px;
+    margin: 8px;
+}
+
+.img{
+    width: 400px;
+    height: 300px;
+}
+*/

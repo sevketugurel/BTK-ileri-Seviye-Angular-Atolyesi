@@ -1,0 +1,6 @@
+<div class="container">
+  <button mat-raised-button color="primary" (click)="FiltreTemizleme()">Tümünü Göster</button>
+  @for (category of categories; track $index) {
+    <button mat-stroked-button color="primary" (click)="getCategoryFilm(category)">{{category}}</button>
+  }
+</div>

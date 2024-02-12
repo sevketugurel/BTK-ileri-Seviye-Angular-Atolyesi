@@ -1,0 +1,33 @@
+<div class="container">
+    @for (book of bookList; track $index) {
+    <div class="field">
+        <div class="name">
+            <div class="form-name">{{ book.name }}</div>
+            <div> - </div>
+            <div>{{ book.year }}</div>
+        </div>
+        <div>{{ book.author }}</div>
+        <div class="form-star">{{ book.star }} ✯</div>
+        <button mat-mini-fab (click)="addToCart(book)"><mat-icon >shopping_cart</mat-icon></button>
+    </div>
+    }
+</div>
+
+<!-- <div class="cards">
+    
+    @for (book of bookList; track $index) {
+        <mat-card class="example-card">
+            <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title> {{ book.name }} </mat-card-title>
+            <mat-card-subtitle> {{book.author}} </mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image class="img" src="https://picsum.photos/200/300">
+            <mat-card-content>
+            <p>{{book.category}}</p>
+            <p> {{book.star}} ✯ </p>
+            </mat-card-content>
+        </mat-card>
+    }
+</div>
+ -->
