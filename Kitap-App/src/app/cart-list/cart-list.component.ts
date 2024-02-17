@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BookModel } from '../home-page/home-page.component';
 import { BooksData } from '../books.const';
+import { BookService } from '../book.service';
 
 @Component({
   selector: 'app-cart-list',
@@ -11,11 +12,9 @@ import { BooksData } from '../books.const';
 })
 export class CartListComponent {
   cartlist:BookModel[]=[]
+  constructor(private _bookService:BookService){}
   ngOnInit(){
-    this.cartlist.push(BooksData[0])
-    this.cartlist.push(BooksData[1])
-    this.cartlist.push(BooksData[4])
-    this.cartlist.push(BooksData[7])
+   this.cartlist= this._bookService.getCart()
   }
 
 }

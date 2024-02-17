@@ -5,12 +5,17 @@ import { BookCardListComponent } from "./book-card-list/book-card-list.component
 import { NavbarComponent } from './navbar/navbar.component'
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatIconModule} from '@angular/material/icon';
+import { BookService } from '../book.service';
+import { runInThisContext } from 'vm';
+
 @Component({
   selector: 'app-home-page',
   standalone: true,
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
-  imports: [MatTableModule, BookCardListComponent, MatButtonModule, NavbarComponent]
+  imports: [MatTableModule,MatBadgeModule,MatIconModule, BookCardListComponent, MatButtonModule, NavbarComponent]
 })
 
 
@@ -21,7 +26,7 @@ export class HomePageComponent {
   cartList:BookModel[] = []
   filteredBooks: BookModel | any = BooksData
 
-  constructor(private _router:Router){}
+  constructor(private _router:Router,private _bookService:BookService){}
 
   ngOnInit() {// NGONINIT İLK ÇALIŞAN KOMUTLARDIR.
     this.books.forEach((item: BookModel) => {
@@ -29,6 +34,7 @@ export class HomePageComponent {
         this.categories.push(item.category)
       }
     })
+    this.cartList = this._bookService.getCart()
   }
   setBooksForCategories(event: string) {
     this.filteredBooks = this.books.filter((data: BookModel) => data.category === event)
@@ -41,8 +47,7 @@ export class HomePageComponent {
   }
   addToCart(event:BookModel){
     this.cartList.push(event)
-    console.log(this.cartList);
-    
+    this._bookService.addCart(this.cartList)    
   }
 }
 

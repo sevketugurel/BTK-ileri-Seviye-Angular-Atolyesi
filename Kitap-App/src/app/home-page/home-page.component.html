@@ -1,4 +1,5 @@
 <app-navbar [categories]="categories" (categoryName)="setBooksForCategories($event)" (categoryTemizle)="filtretemizleme($event)"></app-navbar>
 
-<div class="SepetButton" > <button mat-raised-button (click)="SepeteGit()">Sepete Git</button></div>
+<div class="SepetButton" > <button mat-raised-button (click)="SepeteGit()"><mat-icon [matBadge]="cartList.length" matBadgeColor="warn">shopping_cart</mat-icon>
+</button></div>
 <app-book-card-list [bookList]="filteredBooks" (addCart)="addToCart($event)"></app-book-card-list>
