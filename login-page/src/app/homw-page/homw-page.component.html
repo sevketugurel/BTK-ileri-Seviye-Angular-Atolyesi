@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="box">
+    <div class="left">
+      <img  src="assets/2.svg">
+    </div>
+    <div class="right">
+      <div class="subbox" >
+        <h1>Hello Again!</h1>
+        <h3>Welcome back you've been missed!</h3>
+  
+        <form>
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input class="example-input" type="email" matInput [formControl]="emailFormControl"
+              placeholder="Ex. pat@example.com">
+            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+            <mat-error>Please enter a valid email address</mat-error>
+            }
+            @if (emailFormControl.hasError('required')) {
+            <mat-error>Email is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </form>
+  
+        <form>
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input class="example-input" type="email" matInput [formControl]="passwordFormControl">
+            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+            }
+            @if (emailFormControl.hasError('required')) {
+            <mat-error>Password <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </form>
+        <button mat-raised-button color="primary" [disabled]="false" class="sig-in-btn">Sign in</button>
+        <div class="register-btn"><button mat-raised-button  (click)="goToRegisterpage()" [disabled]="false" >Register</button></div>
+        <div class="linkler">
+          <button type="button" class="buttonLink">
+            <img src="https://freepngimg.com/save/67060-play-photos-search-google-account-png-file-hd/2400x2404">
+          </button>
+  
+          <button type="button" class="buttonLink">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/apple-icon.png">
+          </button>
+  
+          <button type="button" class="buttonLink">
+            <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png">
+          </button>
+  
+          <!-- <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+          <img src="">   
+          </button>
+          <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+            <mat-icon>bookmark</mat-icon>
+          </button>
+          <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+            <mat-icon>bookmark</mat-icon>
+          </button> -->
+        </div>
+      </div>
+    </div>
+  
+  </div>  
+</div>
