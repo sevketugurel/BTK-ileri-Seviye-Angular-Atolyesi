@@ -6,62 +6,53 @@
         <div>
           <h1>REGİSTER</h1>
         <p>Pleaser entry your information!</p>
-        <form>
+        <form [formGroup]="registerForm">
           <mat-form-field class="example-full-width">
             <mat-label>Name</mat-label>
-            <input class="example-input" type="email" matInput [formControl]="emailFormControl"
+            <input class="example-input" type="email" matInput formControlName="name"
               >
-            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-            <mat-error>Please enter a valid email address</mat-error>
+            @if (getFormNameInvalid('name')) {
+            <mat-error>{{getErrorMessage("name")}}</mat-error>
             }
-            @if (emailFormControl.hasError('required')) {
-            <mat-error>Email is <strong>required</strong></mat-error>
-            }
+          
           </mat-form-field>
+
           <mat-form-field class="example-full-width">
             <mat-label>Surname</mat-label>
             <input class="example-input" type="email" matInput 
-              >
-            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-            <mat-error>Please enter a valid email address</mat-error>
-            }
-            @if (emailFormControl.hasError('required')) {
-            <mat-error>Email is <strong>required</strong></mat-error>
+            formControlName="surName">
+            @if (getFormNameInvalid('surName')) {
+            <mat-error>{{getErrorMessage("surName")}}</mat-error>
             }
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Email</mat-label>
-            <input class="example-input" type="email" matInput [formControl]="emailFormControl"
+            <input class="example-input" type="email" matInput formControlName="email"
               placeholder="Ex. pat@example.com">
-            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-            <mat-error>Please enter a valid email address</mat-error>
-            }
-            @if (emailFormControl.hasError('required')) {
-            <mat-error>Email is <strong>required</strong></mat-error>
+            @if (getFormNameInvalid('email')) {
+            <mat-error>{{getErrorMessage("email")}}</mat-error>
             }
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Password</mat-label>
-            <input class="example-input" type="email" matInput [formControl]="passwordFormControl">
-            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-            }
-            @if (emailFormControl.hasError('required')) {
-            <mat-error>Password <strong>required</strong></mat-error>
+            <input class="example-input" type="password" matInput formControlName="password">
+            @if (getFormNameInvalid('password')) {
+            <mat-error>{{getErrorMessage("password")}}</mat-error>
+
             }
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label>Password Again</mat-label>
-            <input class="example-input" type="email" matInput [formControl]="passwordFormControl">
-            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-            }
-            @if (emailFormControl.hasError('required')) {
-            <mat-error>Password Again<strong>required</strong></mat-error>
+            <input class="example-input" type="password" matInput formControlName="passwordAgain">
+            @if (getFormNameInvalid('passwordAgain')) {
+            <mat-error>{{getErrorMessage("passwordAgain")}}</mat-error>
+
             }
           </mat-form-field>
         </form>
-        <button mat-raised-button color="primary" [disabled]="false" class="sig-in-btn">Register</button>
+        <button (click)="register()" mat-raised-button color="primary" [disabled]="isDisable()" class="sig-in-btn">Register</button>
         <div class="linkler">
           <button type="button" class="buttonLink">
             <img src="https://freepngimg.com/save/67060-play-photos-search-google-account-png-file-hd/2400x2404">
@@ -74,16 +65,6 @@
           <button type="button" class="buttonLink">
             <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png">
           </button>
-  
-          <!-- <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
-          <img src="">   
-          </button>
-          <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
-            <mat-icon>bookmark</mat-icon>
-          </button>
-          <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
-            <mat-icon>bookmark</mat-icon>
-          </button> -->
         </div>
       </div>
     </div>

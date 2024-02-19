@@ -8,32 +8,28 @@
         <h1>Hello Again!</h1>
         <h3>Welcome back you've been missed!</h3>
   
-        <form>
+        <form [formGroup]="loginForm">
           <mat-form-field class="example-full-width">
             <mat-label>Email</mat-label>
-            <input class="example-input" type="email" matInput [formControl]="emailFormControl"
+            <input class="example-input" type="email" formControlName="email" matInput (formControl)="emailFormControl"
               placeholder="Ex. pat@example.com">
-            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-            <mat-error>Please enter a valid email address</mat-error>
+            @if (getFormNameInvalid("email")) {
+            <mat-error>{{getErrorMessage("email")}}</mat-error>
             }
-            @if (emailFormControl.hasError('required')) {
-            <mat-error>Email is <strong>required</strong></mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input class="example-input" type="password" matInput formControlName="password" (formControl)="passwordFormControl">
+            @if (getFormNameInvalid("password")) {
+              <mat-error>{{getErrorMessage("password")}}</mat-error>
             }
+            
           </mat-form-field>
         </form>
   
-        <form>
-          <mat-form-field class="example-full-width">
-            <mat-label>Password</mat-label>
-            <input class="example-input" type="email" matInput [formControl]="passwordFormControl">
-            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-            }
-            @if (emailFormControl.hasError('required')) {
-            <mat-error>Password <strong>required</strong></mat-error>
-            }
-          </mat-form-field>
-        </form>
-        <button mat-raised-button color="primary" [disabled]="false" class="sig-in-btn">Sign in</button>
+        
+        <button mat-raised-button color="primary" [disabled]="false" class="sig-in-btn" (click)="clickedSignIn()">Sign in</button>
         <div class="register-btn"><button mat-raised-button  (click)="goToRegisterpage()" [disabled]="false" >Register</button></div>
         <div class="linkler">
           <button type="button" class="buttonLink">
@@ -47,16 +43,6 @@
           <button type="button" class="buttonLink">
             <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png">
           </button>
-  
-          <!-- <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
-          <img src="">   
-          </button>
-          <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
-            <mat-icon>bookmark</mat-icon>
-          </button>
-          <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
-            <mat-icon>bookmark</mat-icon>
-          </button> -->
         </div>
       </div>
     </div>
