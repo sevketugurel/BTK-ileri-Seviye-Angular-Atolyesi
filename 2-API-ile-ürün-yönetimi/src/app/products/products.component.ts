@@ -48,7 +48,7 @@ export class ProductsComponent {
       this.products = response
       this.filteredproducts = response;
     })
-  }
+  } 
   openDialog(product: Products) {
     this.dialog.open(InfoDetailComponent, {
       data: product,
